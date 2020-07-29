@@ -845,17 +845,6 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>about</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -878,22 +867,11 @@
     
     
     <entry>
-      <title>友情链接</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>pictures</title>
-      <link href="/pictures/index.html"/>
-      <url>/pictures/index.html</url>
-      
-        <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img" src= "/img/loading.gif" data-src='https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png'>  <figcaption>  <div class="gallery-group-name">测试</div>  <p>用好看的小姐姐做个测试</p>  <a href='/pictures/test'></a>  </figcaption>  </figure>    <figure class="gallery-group">  <img class="gallery-group-img" src= "/img/loading.gif" data-src='/gallery/mypaint/%E5%93%86%E5%95%A6A%E6%A2%A6.png'>  <figcaption>  <div class="gallery-group-name">我的绘画</div>  <p>幼儿园级别的画</p>  <a href='/pictures/mypaint'></a>  </figcaption>  </figure>  </div>]]></content>
       
     </entry>
     
@@ -911,11 +889,22 @@
     
     
     <entry>
-      <title>test</title>
-      <link href="/pictures/test/index.html"/>
-      <url>/pictures/test/index.html</url>
+      <title>友情链接</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
-        <content type="html"><![CDATA[<div class="justified-gallery"><p><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/Fze9jchtnyJXMHN.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/ryLVePaqkYm4TEK.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/gEy5Zc1Ai6VuO4N.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/d6QHbytlSYO4FBG.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/6nepIJ1xTgufatZ.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/E7Jvr4eIPwUNmzq.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/mh19anwBSWIkGlH.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/2tu9JC8ewpBFagv.jpg" alt=""></p>          </div>]]></content>
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pictures</title>
+      <link href="/pictures/index.html"/>
+      <url>/pictures/index.html</url>
+      
+        <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img" src= "/img/loading.gif" data-src='/gallery/mypaint/%E5%93%86%E5%95%A6A%E6%A2%A6.png'>  <figcaption>  <div class="gallery-group-name">我的绘画</div>  <p>幼儿园级别的画</p>  <a href='/pictures/mypaint'></a>  </figcaption>  </figure>  </div>]]></content>
       
     </entry>
     
