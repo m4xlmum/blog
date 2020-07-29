@@ -845,17 +845,6 @@
     
     
     <entry>
-      <title>archives</title>
-      <link href="/archives/index.html"/>
-      <url>/archives/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>about</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -870,6 +859,17 @@
       <title>categories</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>archives</title>
+      <link href="/archives/index.html"/>
+      <url>/archives/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -893,7 +893,7 @@
       <link href="/pictures/index.html"/>
       <url>/pictures/index.html</url>
       
-        <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img" src= "/img/loading.gif" data-src='https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png'>  <figcaption>  <div class="gallery-group-name">壁纸</div>  <p>收藏的一些壁纸</p>  <a href='/pictures/wallpaper'></a>  </figcaption>  </figure>    <figure class="gallery-group">  <img class="gallery-group-img" src= "/img/loading.gif" data-src='https://i.loli.net/2019/12/25/8t97aVlp4hgyBGu.jpg'>  <figcaption>  <div class="gallery-group-name">漫威</div>  <p>关于漫威的图片</p>  <a href='/pictures/marvel'></a>  </figcaption>  </figure>    <figure class="gallery-group">  <img class="gallery-group-img" src= "/img/loading.gif" data-src='https://i.loli.net/2019/12/25/hOqbQ3BIwa6KWpo.jpg'>  <figcaption>  <div class="gallery-group-name">OH MY GIRL</div>  <p>关于OH MY GIRL的图片</p>  <a href='/pictures/ohmygirl'></a>  </figcaption>  </figure>  </div><div class="justified-gallery"><p><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/Fze9jchtnyJXMHN.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/ryLVePaqkYm4TEK.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/gEy5Zc1Ai6VuO4N.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/d6QHbytlSYO4FBG.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/6nepIJ1xTgufatZ.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/E7Jvr4eIPwUNmzq.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/mh19anwBSWIkGlH.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/2tu9JC8ewpBFagv.jpg" alt=""></p>          </div>]]></content>
+        <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img" src= "/img/loading.gif" data-src='https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png'>  <figcaption>  <div class="gallery-group-name">壁纸</div>  <p>收藏的一些壁纸</p>  <a href='/pictures/mypaint'></a>  </figcaption>  </figure>    <figure class="gallery-group">  <img class="gallery-group-img" src= "/img/loading.gif" data-src='https://i.loli.net/2019/12/25/8t97aVlp4hgyBGu.jpg'>  <figcaption>  <div class="gallery-group-name">漫威</div>  <p>关于漫威的图片</p>  <a href='/pictures/marvel'></a>  </figcaption>  </figure>    <figure class="gallery-group">  <img class="gallery-group-img" src= "/img/loading.gif" data-src='https://i.loli.net/2019/12/25/hOqbQ3BIwa6KWpo.jpg'>  <figcaption>  <div class="gallery-group-name">OH MY GIRL</div>  <p>关于OH MY GIRL的图片</p>  <a href='/pictures/ohmygirl'></a>  </figcaption>  </figure>  </div><div class="justified-gallery"><p><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/Fze9jchtnyJXMHN.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/ryLVePaqkYm4TEK.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/gEy5Zc1Ai6VuO4N.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/d6QHbytlSYO4FBG.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/6nepIJ1xTgufatZ.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/E7Jvr4eIPwUNmzq.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/mh19anwBSWIkGlH.jpg" alt=""><br><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/25/2tu9JC8ewpBFagv.jpg" alt=""></p>          </div>]]></content>
       
     </entry>
     
