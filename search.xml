@@ -867,11 +867,11 @@
     
     
     <entry>
-      <title>picture</title>
-      <link href="/picture/index.html"/>
-      <url>/picture/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<h3 id="存放图片的位置"><a href="#存放图片的位置" class="headerlink" title="存放图片的位置"></a>存放图片的位置</h3>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -889,11 +889,11 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>picture</title>
+      <link href="/picture/index.html"/>
+      <url>/picture/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h3 id="存放图片的位置"><a href="#存放图片的位置" class="headerlink" title="存放图片的位置"></a>存放图片的位置</h3>]]></content>
       
     </entry>
     
