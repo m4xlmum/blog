@@ -903,22 +903,22 @@
     
     
     <entry>
-      <title>pictures</title>
-      <link href="/pictures/index.html"/>
-      <url>/pictures/index.html</url>
+      <title>友情链接</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
-        <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img" src= "/img/loading.gif" data-src='/gallery/mypaint/%E5%93%86%E5%95%A6A%E6%A2%A6.png'>  <figcaption>  <div class="gallery-group-name">我的绘画</div>  <p>幼儿园级别的画</p>  <a href='/pictures/mypaint'></a>  </figcaption>  </figure>  </div>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>友情链接</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>pictures</title>
+      <link href="/pictures/index.html"/>
+      <url>/pictures/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img" src= "/img/loading.gif" data-src='/gallery/mypaint/%E5%93%86%E5%95%A6A%E6%A2%A6.png'>  <figcaption>  <div class="gallery-group-name">我的绘画</div>  <p>幼儿园级别的画</p>  <a href='/pictures/mypaint'></a>  </figcaption>  </figure>  </div>]]></content>
       
     </entry>
     
